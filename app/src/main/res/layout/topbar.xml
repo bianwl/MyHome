@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:background="@drawable/top" >
+    
+    <Button 
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/back"
+    	android:drawablePadding="10dp"
+        android:textSize="24sp"
+		android:textColor="@color/white"        
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/back"
+        android:contentDescription="@string/back"
+        android:paddingLeft="5dp"/>
+    <TextView 
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:text="@string/areaName"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cj"
+        android:visibility="invisible"
+        android:contentDescription="@string/app_name"
+        />
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/set_bg"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <TextView 
+	    android:id="@+id/tv_dialog_areaparam_name"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="20dp"
+	    android:text="@string/name"
+	    android:textSize="25sp"
+	    />
+        <EditText 
+            android:id="@+id/edt_dialog_areaparam_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edtinput_selector"
+            android:singleLine="true"
+            android:textSize="25sp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="10dp"
+            android:inputType="none"
+            />
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/about_page_divline"/>
+    <ListView 
+        android:id="@+id/lv_dialog_areaparam"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@drawable/div_line"
+        android:background="@drawable/set_bg"
+        android:layout_marginLeft="20dp"
+        android:fadeScrollbars="true"
+        android:layout_marginRight="15dp"/>
+    
+     <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/about_page_divline"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+    	android:paddingLeft="20dp"
+    	android:paddingRight="15dp"
+    	android:background="@color/transparent"
+        android:orientation="horizontal">
+       
+        <Button 
+            android:id="@+id/btn_ok"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/ok"
+            style="?android:attr/buttonStyle"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+        
+         <Button 
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/cancel"
+            style="?android:attr/buttonStyle"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+    </LinearLayout>
+    
+</LinearLayout>

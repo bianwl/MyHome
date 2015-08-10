@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"
+    android:background="@color/white"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/tvPlusType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="@string/area"
+        android:textSize="25sp" />
+
+    <ImageButton
+        android:id="@+id/imgBtnPlus"
+        android:layout_width="62dp"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/sb_add_b"
+        android:contentDescription="@string/app_name"
+        android:paddingTop="20dp" />
+
+</RelativeLayout>

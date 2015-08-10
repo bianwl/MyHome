@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <!-- logo -->
+
+    <LinearLayout
+        style="@style/loginStyle"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnSetting"
+            style="@style/wrapContent"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/setting"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            style="@style/wrapContent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/logo"
+            android:contentDescription="@string/app_name" />
+    </LinearLayout>
+
+    <!-- 用户名、密码 -->
+
+    <LinearLayout
+        style="@style/loginStyle"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="10dp"
+                android:text="@string/user"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtUser"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:background="@drawable/edtinput_selector"
+                android:gravity="center_vertical|left"
+                android:hint="@string/userHint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="10dp"
+                android:text="@string/password"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="3"
+                android:background="@drawable/edtinput_selector"
+                android:gravity="center_vertical|left"
+                android:hint="@string/pwdHind"
+                android:inputType="textPassword"
+                android:paddingRight="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/loginStyle"
+        android:orientation="vertical" >
+
+        <CheckBox
+            android:id="@+id/ckbSavePwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/savePwd"
+            android:textColor="#ffffff"
+            android:button="@drawable/login_checkbox_selector"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn01"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>
