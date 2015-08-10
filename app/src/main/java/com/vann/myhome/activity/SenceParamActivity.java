@@ -17,7 +17,6 @@ import com.vann.myhome.BaseActivity;
 import com.vann.myhome.R;
 import com.vann.myhome.adapter.ImageAdapter;
 import com.vann.myhome.db.HomeDB;
-import com.vann.myhome.fragment.AreaParamDialogFragment;
 import com.vann.myhome.fragment.SenceParamDialogFragment;
 import com.vann.myhome.model.AreaModel;
 import com.vann.myhome.model.SenceModel;
@@ -33,7 +32,7 @@ import java.util.List;
  * @Author: wenlong.bian 2015-08-10
  * @E-mail: bxl049@163.com
  */
-public class SenceParamActivity extends BaseActivity implements View.OnClickListener, AreaParamDialogFragment.CallBackListener {
+public class SenceParamActivity extends BaseActivity implements View.OnClickListener, SenceParamDialogFragment.CallBackListener {
 
     private ListView mListView;
 
@@ -179,8 +178,8 @@ public class SenceParamActivity extends BaseActivity implements View.OnClickList
 
                 @Override
                 public void onClick(View v) {
-                    String sql = "delete from area_devices where  senceId=?";
-                    String sql2 = "delete from areas where senceId =?";
+                    String sql = "delete from sence_devices where  senceId=?";
+                    String sql2 = "delete from sences where senceId =?";
                     db.execSql(sql, new String[]{sence.getSenceId()});
                     db.execSql(sql2, new String[]{sence.getSenceId()});
                     sences.remove(sence);

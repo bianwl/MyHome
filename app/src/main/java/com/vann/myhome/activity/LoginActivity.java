@@ -53,6 +53,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
+        initVariable();
+        initView();
+        initListener();
     }
 
     private void initVariable() {

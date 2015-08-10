@@ -16,14 +16,14 @@ public class BaseFrame extends Activity {
 		
 	}
 
-	/** ��ʾ��Ϣ
+	/** 提示信息
 	 * @param msg
 	 */
 	public void showMsg(String msg){
 		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 	}
 	
-	/** ��ת����һ������
+	/** 跳转到另一个界面
 	 * @param cls
 	 */
 	public void openActivity(Class<?> cls){
@@ -32,20 +32,20 @@ public class BaseFrame extends Activity {
 	}
 	
 	/**
-	 *  ��ʾ�����
+	 *  显示进度条
 	 */
 	protected void showProgressDialog(){
 		dialog = new ProgressDialog(this);
 		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		dialog.setMessage("���Ժ�...");
+		dialog.setMessage("请稍后...");
 		dialog.setIndeterminate(false);
-		//�Ƿ�ɰ����˼�ȡ��
+		//是否可按会推荐取消
 		dialog.setCancelable(true);
 		dialog.show();
 	}
 	
 	/**
-	 *  �رս����
+	 * 关闭进度条
 	 */
 	protected void closeProgressDialog(){
 		if(dialog != null){
