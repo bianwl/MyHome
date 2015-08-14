@@ -4,7 +4,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/set_bg"
     android:orientation="vertical" >
-    
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:background="#0066aa"
+        android:textSize="24sp"/>
+
     <LinearLayout 
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -17,6 +24,7 @@
 	    android:layout_height="wrap_content"
 	    android:paddingLeft="20dp"
 	    android:text="@string/name"
+        android:textColor="@color/black"
 	    android:textSize="25sp"
 	    />
         <EditText 
@@ -58,10 +66,10 @@
     
     <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="55dp"
     	android:paddingLeft="20dp"
     	android:paddingRight="15dp"
-    	android:background="@color/transparent"
+    	android:background="#0066aa"
         android:orientation="horizontal">
        
         <Button 
@@ -71,6 +79,10 @@
             android:layout_height="match_parent"
             android:text="@string/ok"
             style="?android:attr/buttonStyle"
+            android:background="@color/transparent"
+            android:textColor="@color/white"
+            android:clickable="false"
+            android:textSize="18sp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"/>
         
@@ -81,6 +93,10 @@
             android:layout_height="match_parent"
             android:text="@string/cancel"
             style="?android:attr/buttonStyle"
+             android:background="@color/transparent"
+             android:textColor="@color/white"
+             android:textSize="18sp"
+             android:clickable="false"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"/>
     </LinearLayout>

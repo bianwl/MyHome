@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.vann.myhome.R;
+import com.vann.myhome.constants.CommonConstant;
 import com.vann.myhome.db.HomeDB;
 import com.vann.myhome.model.AreaModel;
 import com.vann.myhome.model.DeviceModel;
@@ -39,14 +41,11 @@ public class AreaParamDialogFragment extends DialogFragment {
 
     private ListView mListView;
 
+    private TextView mTitle;
+
     private Button mOk;
 
     private Button mCancel;
-
-    // 添加区域
-    private static int ACTION_INSERT = 0;
-    // 编辑器区域
-    private static int ACTION_EDIT = 1;
 
     private int state;
 
@@ -76,12 +75,13 @@ public class AreaParamDialogFragment extends DialogFragment {
         if (!TextUtils.isEmpty(currentName)) {
             title = "编辑区域";
         }
-        getDialog().setTitle(title);
         View view = inflater.inflate(R.layout.dialog_areaparam, container,
                 false);
         initView(view);
         initListener();
         bindData();
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mTitle.setText(title);
         return view;
     }
 
@@ -96,11 +96,11 @@ public class AreaParamDialogFragment extends DialogFragment {
         }
 
         int type = getArguments().getInt("type");
-        if (type == ACTION_INSERT) {
-            state = ACTION_INSERT;
+        if (type == CommonConstant.DIALOG_INSERT) {
+            state = CommonConstant.DIALOG_INSERT;
             mAdapter = new AreaParamDevAdapter(db.loadDevices());
         } else {
-            state = ACTION_EDIT;
+            state = CommonConstant.DIALOG_EDIT;
             mAdapter = new AreaParamDevAdapter(db.loadAreaDevice(areaId, 2));
         }
     }
@@ -115,7 +115,7 @@ public class AreaParamDialogFragment extends DialogFragment {
                 if (TextUtils.isEmpty(areaName)) {
                     DialogUtil.createWarnDialog(getActivity(), "区域名称不能为空！");
                     return;
-                } else if (isExists(areaName) && state == ACTION_INSERT) {
+                } else if (isExists(areaName) && state == CommonConstant.DIALOG_INSERT) {
                     DialogUtil.createWarnDialog(getActivity(), areaName + "区域已存在,请重新命名！");
                     return;
                 }
@@ -126,7 +126,7 @@ public class AreaParamDialogFragment extends DialogFragment {
                 String areaId = currentArea.getAreaId();
                 DeviceModel dev = null;
                 String devName = "";
-                if (state == ACTION_INSERT) {// 添加区域配置
+                if (state == CommonConstant.DIALOG_INSERT) {// 添加区域配置
                     for (int i = 0; i < mAdapter.getList().size(); i++) {
                         dev = mAdapter.getList().get(i);
                         devName = dev.getName();
@@ -138,7 +138,7 @@ public class AreaParamDialogFragment extends DialogFragment {
                     }
                     db.saveArea(currentArea);
 
-                } else if (state == ACTION_EDIT) {// 编辑区域配置
+                } else if (state == CommonConstant.DIALOG_EDIT) {// 编辑区域配置
                     for (int j = 0; j < mAdapter.getList().size(); j++) {
                         dev = mAdapter.getList().get(j);
                         devName = dev.getName();
@@ -167,9 +167,10 @@ public class AreaParamDialogFragment extends DialogFragment {
     }
 
     private void initView(View view) {
+        mTitle = (TextView) view.findViewById(R.id.dialog_title);
         mAreaName = (EditText) view
                 .findViewById(R.id.edt_dialog_areaparam_name);
-        if (state == ACTION_EDIT) {
+        if (state == CommonConstant.DIALOG_EDIT) {
             mAreaName.setText(currentName);
         }
         mListView = (ListView) view.findViewById(R.id.lv_dialog_areaparam);

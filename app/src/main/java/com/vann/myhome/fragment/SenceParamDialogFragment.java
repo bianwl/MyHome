@@ -8,10 +8,12 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.vann.myhome.R;
 import com.vann.myhome.adapter.SenceParamDevAdapter;
@@ -38,6 +40,7 @@ public class SenceParamDialogFragment extends DialogFragment implements View.OnC
     private ListView mListView;
     private RadioButton rbAll;
     private RadioButton rbArea;
+    private TextView mTitle;
 
     private HomeDB db;
 
@@ -72,6 +75,8 @@ public class SenceParamDialogFragment extends DialogFragment implements View.OnC
 
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,11 +88,13 @@ public class SenceParamDialogFragment extends DialogFragment implements View.OnC
         rbAll = (RadioButton) view.findViewById(R.id.allArea);
         rbArea = (RadioButton) view.findViewById(R.id.area);
         mName = (EditText) view.findViewById(R.id.edt_senceNme);
+        mTitle = (TextView) view.findViewById(R.id.dialog_title);
         initVariable();
         // 初始化监听
         initListerner();
         // 初始化数据
         initData();
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         return view;
     }
 
@@ -101,12 +108,14 @@ public class SenceParamDialogFragment extends DialogFragment implements View.OnC
         db = HomeDB.getIntance(getActivity());
         if (state == CommonConstant.DIALOG_EDIT) {
             mState = CommonConstant.DIALOG_EDIT;
-            getDialog().setTitle("编辑场景");
+            mTitle.setText("编辑场景");
             mName.setText(sence.getName());
+
         } else if (state == CommonConstant.DIALOG_INSERT) {
             mState = CommonConstant.DIALOG_INSERT;
-            getDialog().setTitle("添加场景");
+            mTitle.setText("添加场景");
         }
+
         if (type == CommonConstant.SENCE_ALL) {
             mStyle = CommonConstant.SENCE_ALL;
             rbAll.setChecked(true);
@@ -152,7 +161,7 @@ public class SenceParamDialogFragment extends DialogFragment implements View.OnC
                 if (TextUtils.isEmpty(name)) {
                     DialogUtil.createWarnDialog(getActivity(), "场景名称不能为空！");
                     return;
-                } else if (isExists(name) && mState == CommonConstant.DIALOG_EDIT) {
+                } else if (isExists(name) && mState == CommonConstant.DIALOG_INSERT) {
                     DialogUtil.createWarnDialog(getActivity(), name + "场景已存在，请重新命名！");
                     return;
                 }
