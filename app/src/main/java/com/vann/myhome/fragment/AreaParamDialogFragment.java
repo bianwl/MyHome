@@ -115,7 +115,7 @@ public class AreaParamDialogFragment extends DialogFragment {
                 if (TextUtils.isEmpty(areaName)) {
                     DialogUtil.createWarnDialog(getActivity(), "区域名称不能为空！");
                     return;
-                } else if (isExists(areaName)) {
+                } else if (isExists(areaName) && state == ACTION_INSERT) {
                     DialogUtil.createWarnDialog(getActivity(), areaName + "区域已存在,请重新命名！");
                     return;
                 }

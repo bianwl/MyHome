@@ -152,7 +152,7 @@ public class SenceParamDialogFragment extends DialogFragment implements View.OnC
                 if (TextUtils.isEmpty(name)) {
                     DialogUtil.createWarnDialog(getActivity(), "场景名称不能为空！");
                     return;
-                } else if (isExists(name)) {
+                } else if (isExists(name) && mState == CommonConstant.DIALOG_EDIT) {
                     DialogUtil.createWarnDialog(getActivity(), name + "场景已存在，请重新命名！");
                     return;
                 }
